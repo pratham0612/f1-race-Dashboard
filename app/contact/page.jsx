@@ -1,5 +1,7 @@
 "use client";
+
 import React, { useState } from "react";
+import Image from "next/image";
 
 const Contact = () => {
   const [email, setEmail] = useState("");
@@ -31,31 +33,40 @@ const Contact = () => {
   };
 
   return (
-    <div className="flex">
+    <div
+      className="flex"
+      style={{
+      backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./background.jpg")',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      minHeight: '100vh',
+      
+      }}
+      
+    >
       {/* Main Content */}
       <div className="flex-1 p-10">
         <div className="flex flex-col lg:flex-row">
-          {/* Left Section */}
-          <div className="bg-gray-800 text-white p-6 rounded-lg lg:w-1/2 lg:mr-4">
-            <h2 className="text-2xl font-bold mb-4">Let's Talk!</h2>
-            <ul className="list-disc list-inside mb-4">
+          
+          <div className="bg-transparent-800 text-white p-8 rounded-lg lg:w-1/2 lg:mr-4 flex flex-col ">
+            <h2 className="text-3xl font-bold mb-6">Let&apos;s Talk!</h2>
+            <ul className="list-disc list-inside mb-6 text-lg">
               <li>Have feedback?</li>
               <li>Found Bad Data?</li>
               <li>Want to see new functionality?</li>
               <li>Anything else ...</li>
             </ul>
-            <p className="mb-4">We'd love to hear from you!</p>
-            <img 
-            src="./crossed-racing-flags-checkered-race-.png" alt="Crossed checkered flags" className="w-200 h-150 object-contain rounded-lg"/>
-
+            <p className="mb-6 text-lg">We&apos;d love to hear from you!</p>
+            
           </div>
 
           {/* Right Section - Feedback Form */}
           <div className="bg-transparent p-6 rounded-lg lg:w-1/2 lg:ml-4 mt-6 lg:mt-0">
-            <h2 className="text-xl font-semibold mb-4">Feedback Form</h2>
+            <h2 className="text-xl font-semibold mb-4">Feedback Form </h2>
+
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700">Email</label>
+                <label className="block text-sm font-medium text-white-700">Email</label>
                 <input
                   type="email"
                   placeholder="Enter your email"
@@ -67,7 +78,7 @@ const Contact = () => {
               </div>
 
               <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700">Feedback Type</label>
+                <label className="block text-medium font-bold text-white-700">Feedback Type</label>
                 <div className="space-y-2">
                   {["Feedback", "Feature Request", "Issue", "Other"].map((type) => (
                     <label key={type} className="flex items-center space-x-2">
@@ -86,7 +97,7 @@ const Contact = () => {
               </div>
 
               <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700">Message</label>
+                <label className="block text-medium  font-bold text-white-700">Message</label>
                 <textarea
                   placeholder="Enter your message"
                   value={message}
